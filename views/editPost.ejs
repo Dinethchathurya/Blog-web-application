@@ -1,20 +1,20 @@
-
 <%- include("partials/header.ejs") %>
-<div class="form-signin w-100 m-auto container createpost">
-    <center>
+
+    <div class="form-signin w-100 m-auto container createpost">
+        <center>
             <form method="post" action="/create">
-                <h1 class="h3 mb-3 fw-normal">Create New Post</h1>
-            
+                <h1 class="h3 mb-3 fw-normal">Edit Your Post</h1>
+
                 <div class="form-floating col-6">
-                    <input type="text" class="form-control"name="Category" required>
+                    <input type="text" class="form-control" name="Category" required>
                     <label for="Category">Category</label>
                 </div>
                 <div class="form-floating col-6">
-                    <input type="text" class="form-control"  name="Title" required>
+                    <input type="text" class="form-control" name="Title" required>
                     <label for="Title">Title</label>
                 </div>
                 <div class="form-floating col-6">
-                    <input type="text" class="form-control"  name="Content" required>
+                    <input type="text" class="form-control" name="Content" required>
                     <label for="Content">Content</label>
                 </div>
                 <div class="form-floating col-6">
@@ -25,7 +25,7 @@
                     <button class="btn btn-primary w-100 py-2 col-6" type="submit">Post</button>
                 </div>
             </form>
-    </center>
-</div>
+        </center>
+    </div>
 
-<%- include("partials/footer.ejs") %>
+    <%- include("partials/footer.ejs") %>

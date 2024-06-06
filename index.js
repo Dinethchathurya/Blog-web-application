@@ -3,6 +3,24 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
+let date = new Date();
+let currentTime = date.toLocaleDateString('en-CA');
+
+function addpost(req){
+    posts = posts.concat({
+        category: req.body.Category,
+        title: req.body.Title,
+        content: req.body.Content,
+        time: currentTime,
+        link: req.body.ImageUrl
+    });
+}
+
+function deletepost(req){
+    let index = req.body.index;
+    posts.splice(index, 1);
+}
+
 
 let posts = [
     { category: "iphone", title: "New iphone relesed", content: "This is the content of post 1", time :"2024/02/4",link: "https://cdn.alloallo.media/catalog/product/apple/iphone/iphone-13/iphone-13-pink.jpg"},
@@ -19,7 +37,17 @@ app.get("/",  (req,res) => {
 
 app.get("/newpost",(req,res) => {
     res.render("createPost.ejs");
-})
+});
+
+app.post("/create",(req,res)=>{
+    addpost(req);
+    res.render("index.ejs", {posts:posts});
+});
+
+app.post("/delete",(req,res)=>{
+    deletepost(req);
+    res.render("index.ejs",{posts:posts});
+});
 
 app.listen(port, ()=>{
     console.log(`server is running on port: ${port}`);
