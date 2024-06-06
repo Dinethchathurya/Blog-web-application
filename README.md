@@ -33,9 +33,10 @@ To run this application locally, follow these steps:
 ## Usage
 
 1. run this command ro run:
-    ```nodemon index.js
+     ```sh
+    nodemon index.js
 
-2. Open your web browser and navigate to `http://localhost:3000`.
+3. Open your web browser and navigate to `http://localhost:3000`.
 
 
 ## Project Structure
