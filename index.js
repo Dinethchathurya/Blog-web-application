@@ -16,6 +16,14 @@ function addpost(req){
     });
 }
 
+function editpost(req){
+    const index = req.body.index;
+    const postToUpdate = posts[index];
+    postToUpdate.title = req.body.Title;
+    postToUpdate.content =req.body.Content;
+    postToUpdate.link =req.body.Link;
+}
+
 function deletepost(req){
     let index = req.body.index;
     posts.splice(index, 1);
@@ -42,6 +50,23 @@ app.get("/newpost",(req,res) => {
 app.post("/create",(req,res)=>{
     addpost(req);
     res.render("index.ejs", {posts:posts});
+});
+
+app.post("/edit", (req,res)=>{
+    editpost(req);
+    res.render("index.ejs", {posts:posts});
+});
+
+app.post("/editPost",(req,res)=>{
+    let post = posts[req.body.index];
+    if (req.body.index) {
+        res.render("editPost.ejs",{editalbepost:post,index: req.body.index});
+
+    }else
+    {
+        res.send("error");
+    }
+    
 });
 
 app.post("/delete",(req,res)=>{
